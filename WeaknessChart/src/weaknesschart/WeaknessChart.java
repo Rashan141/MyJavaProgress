@@ -21,27 +21,20 @@ public class WeaknessChart {
     private static final HashMap<String, String> waterEffects = new HashMap<>();
     private static final HashMap<String, String> grassEffects = new HashMap<>();
     
-    private static final String[] keys = {"Fire", "Water", "Grass", "Electric", "Flying", "Rock",
-        "Ground", "Poison", "Ghost", "Psychic", "Normal", "Fighting",
-        "Dark", "Bug", "Steel", "Ice", "Dragon", "Fairy"};
+    private static final String[] keys = {"Fire", "Water", "Grass", "Wicked", "Magic"};
     private static Scanner eff;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         ElementFill();
                 
         types.put("Fire", fireEffects);
         types.put("Water", waterEffects);
         types.put("Grass", grassEffects);
-        
-//        System.out.print(fireEffects.keySet() +" \n");
-//        
-//        for(int i = 0; i < fireEffects.size(); i++){    
-//            System.out.print("[" + fireEffects.get(keys[i]) + "] ");
-//        }
     
         Combatant warrior1 = new Combatant("Player1","Fire",100.0,20.0);
+        Combatant warrior2 = new Combatant("Player2","Water",100.0,20.0);
         
-        System.out.printf("Name:%s Type:%s Health:%s Atk:%s \n", warrior1.getName(), warrior1.getType(), warrior1.getHP(), warrior1.getAtk());
+        BattleGround BG = new BattleGround(warrior1, warrior2);
     }
     
     public static void ElementFill(){
@@ -58,21 +51,21 @@ public class WeaknessChart {
                 
                 switch (elementTitle) {
                 case "Fire":
-                    for (int g = 0; g < 18; g++){
+                    for (int g = 0; g < 3; g++){
                         testedElement = eff.next();
                         result = eff.next();        
                         fireEffects.put(testedElement, result);
                     }
                     break;
                 case "Water":
-                    for (int g = 0; g < 18; g++){
+                    for (int g = 0; g < 3; g++){
                         testedElement = eff.next();
                         result = eff.next();
                         waterEffects.put(testedElement, result);
                 }
                     break;
                 case "Grass":
-                    for (int g = 0; g < 18; g++){
+                    for (int g = 0; g < 3; g++){
                         testedElement = eff.next();
                         result = eff.next();
                         grassEffects.put(testedElement, result);

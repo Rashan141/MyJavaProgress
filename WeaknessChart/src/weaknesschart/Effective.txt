@@ -1,3 +1,3 @@
-Fire Fire false Water false Grass true Electric null Flying null Rock false Ground false Poison null Ghost null Psychic null Normal null Fighting null Dark null Bug true Steel true Ice true Dragon null Fairy null
-Water Fire true Water false Grass false Electric false Flying null Rock true Ground true Poison null Ghost null Psychic null Normal null Fighting null Dark null Bug null Steel null Ice null Dragon false Fairy null
-Grass Fire false Water true Grass false Electric null Flying false Rock true Ground true Poison false Ghost null Psychic null Normal null Fighting null Dark null Bug false Steel false Ice false Dragon null Fairy null
+Fire Fire false Water false Grass true 
+Water Fire true Water false Grass false 
+Grass Fire false Water true Grass false 

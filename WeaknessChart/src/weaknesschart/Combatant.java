@@ -14,12 +14,24 @@ public class Combatant {
     private double  HP;
     private double Atk;
     private String name;
+    private boolean isDown = false;
     
     public Combatant(String name, String personalType, double HP, double Atk){
         this.personalType = personalType;
         this.HP = HP;
         this.Atk = Atk;
         this.name = name;
+    }
+    
+    public void Attack(Combatant opponent){
+        System.out.println(this.name + " Attacks " + opponent.getName());
+        double leftoverHealth = opponent.getHP() - this.getAtk();
+        
+        if(leftoverHealth < 0){
+            leftoverHealth = 0;
+        }
+        
+        opponent.setHP(leftoverHealth);
     }
     
     public void setType(String typeChosen){
@@ -52,4 +64,8 @@ public class Combatant {
         return this.Atk;
     }
     
+    public boolean knockedOut(){
+        isDown = (this.HP <= 0);
+        return this.isDown;
+    }
 }
