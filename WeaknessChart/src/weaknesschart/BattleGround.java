@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package weaknesschart;
 
 /**
@@ -11,16 +12,19 @@ package weaknesschart;
  */
 public class BattleGround {
     
-    public BattleGround(Combatant first, Combatant second){
+    public BattleGround(Combatant first, Combatant second) throws InterruptedException{
         Winner(Fight(first, second));
-        
     }
     
-    public Combatant Fight(Combatant first, Combatant second){
+    public final Combatant Fight(Combatant first, Combatant second) throws InterruptedException{
         Combatant victor = null;
         
-        while(first.knockedOut() != true || second.knockedOut() != true){
+        while(first.knockedOut() != true && second.knockedOut() != true){
             first.Attack(second);
+            
+            if(second.knockedOut())
+                break;
+            
             second.Attack(first);
         }
         
@@ -32,7 +36,7 @@ public class BattleGround {
         return victor;
     }
     
-    public void Winner(Combatant living){
+    public final void Winner(Combatant living){
         System.out.println(living.getName() + " is the Winner!");
     }
 }

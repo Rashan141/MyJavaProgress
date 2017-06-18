@@ -1,3 +1,3 @@
-Fire Fire false Water false Grass true 
-Water Fire true Water false Grass false 
-Grass Fire false Water true Grass false 
+Fire Fire Resist Water false Grass true 
+Water Fire Weak Water Resist Grass Strong 
+Grass Fire Strong Water Weak Grass Resist 
