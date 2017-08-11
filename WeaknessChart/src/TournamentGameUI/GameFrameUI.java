@@ -5,10 +5,14 @@
  */
 package TournamentGameUI;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author Rashan
  */
-public class GameFrameUI {
+public class GameFrameUI extends JFrame{
+    
+    
     
 }

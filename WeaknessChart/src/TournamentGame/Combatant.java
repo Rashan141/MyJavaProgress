@@ -18,7 +18,7 @@ public class Combatant {
     private double  HP;
     private double MAX_HP;
     private double MIN_Atk, MAX_Atk;
-    private int MIN_ACC;
+    private int MIN_ACC = ((MIN_Atk <= 20 || MIN_Atk >= 30) ? 75 : 90);
     private final int MAX_ACC = 100;
     private double Def;
     private final double Crit = 1.30;
@@ -26,13 +26,16 @@ public class Combatant {
     private final Random randCalc = new Random();
     private boolean isDown = false;
     
+    public Combatant(){
+    
+    }
+    
     public Combatant(String name, String randomType){
         this.name = name;
         this.HP = round2(randCalc.nextInt(200) + 101, 1);
         this.MAX_HP = this.HP;
         this.MIN_Atk = round2(20.0/(this.HP/200), 1);
         this.personalType = randomType;
-        this.MIN_ACC = (this.MIN_Atk <= 20 ? 75 : 90);
     }
     
     public Combatant(String name, String personalType, double HP, double Atk){
@@ -41,13 +44,11 @@ public class Combatant {
         this.MAX_HP = this.HP;
         this.MIN_Atk = Atk;
         this.personalType = personalType;
-        this.MIN_ACC = (this.MIN_Atk <= 20 ? 75 : 90);
     }
     
     public void Attack(Combatant opponent) throws InterruptedException{
         System.out.println(this.name + " Attacks " + opponent.getName());
         double leftoverHealth = opponent.getHP() - HitWithCrit(this.getAtk(), this.Crit);
-        
         
         System.out.println(this.name + " deals " + (opponent.getHP() - leftoverHealth) + " damage to " + opponent.getName());
         
@@ -79,14 +80,12 @@ public class Combatant {
     public String getType(){
         return this.personalType;
     }
-    
     public String getName(){
         return this.name;
     }
     public double getHP(){
         return this.HP;
     }
-    
     public double getMaxHP(){
         return this.MAX_HP;
     }
@@ -96,7 +95,6 @@ public class Combatant {
     public double getDef(){
         return this.Def;
     }
-    
     public double getAcc(){
         return this.MIN_ACC;
     }

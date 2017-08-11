@@ -22,9 +22,11 @@ public class Tournament {
     private static final HashMap<String, String> fireEffects = new HashMap<>();
     private static final HashMap<String, String> waterEffects = new HashMap<>();
     private static final HashMap<String, String> grassEffects = new HashMap<>();
+    private static final HashMap<String, String> magicEffects = new HashMap<>();
+    private static final HashMap<String, String> wickedEffects = new HashMap<>();
     
     public static final String[] keys = {"Fire", "Water", "Grass", "Wicked", "Magic"};
-    private static Scanner fillEffectsScanner, tournamentScanner;
+    private static Scanner fillEffectsScanner, combatantScanner, tournamentScanner;
 
     public static void main(String[] args) throws InterruptedException {
         ElementEffectFill();
@@ -49,7 +51,7 @@ public class Tournament {
 
         String elementTitle, testedElement, elementAffectedResult;
         
-        try {fillEffectsScanner=  new Scanner(new File("C:\\Users\\Rashan\\Documents\\NetBeansProjects\\WeaknessChart\\src\\weaknesschart\\Effective.txt"));}
+        try {fillEffectsScanner = new Scanner(new File("C:\\Users\\Rashan\\Documents\\NetBeansProjects\\WeaknessChart\\src\\TournamentGame\\Effective.txt"));}
         catch(Exception e){
             System.out.print(e);
         }
@@ -59,24 +61,38 @@ public class Tournament {
                 
                 switch (elementTitle) {
                 case "Fire":
-                    for (int g = 0; g < 3; g++){
+                    for (int g = 0; g < 5; g++){
                         testedElement = fillEffectsScanner.next();
                         elementAffectedResult = fillEffectsScanner.next();        
                         fireEffects.put(testedElement, elementAffectedResult);
                     }
                     break;
                 case "Water":
-                    for (int g = 0; g < 3; g++){
+                    for (int g = 0; g < 5; g++){
                         testedElement = fillEffectsScanner.next();
                         elementAffectedResult = fillEffectsScanner.next();
                         waterEffects.put(testedElement, elementAffectedResult);
                 }
                     break;
                 case "Grass":
-                    for (int g = 0; g < 3; g++){
+                    for (int g = 0; g < 5; g++){
                         testedElement = fillEffectsScanner.next();
                         elementAffectedResult = fillEffectsScanner.next();
                         grassEffects.put(testedElement, elementAffectedResult);
+                }
+                    break;
+                case "Magic":
+                    for (int g = 0; g < 5; g++){
+                        testedElement = fillEffectsScanner.next();
+                        elementAffectedResult = fillEffectsScanner.next();
+                        magicEffects.put(testedElement, elementAffectedResult);
+                }
+                    break;
+                case "Wicked":
+                    for (int g = 0; g < 5; g++){
+                        testedElement = fillEffectsScanner.next();
+                        elementAffectedResult = fillEffectsScanner.next();
+                        wickedEffects.put(testedElement, elementAffectedResult);
                 }
                     break;
                 default:
@@ -101,8 +117,10 @@ public class Tournament {
     }
     
     public static void CheckStats(Combatant fighterToBeChecked){
-        System.out.printf("Name:%s \n HP:%f \n Attack:%f \n Type:%s \n", fighterToBeChecked.getName(), 
-                fighterToBeChecked.getHP(), fighterToBeChecked.getAtk(), fighterToBeChecked.getType());
+        System.out.printf(" Name:%s \n HP:%f \n Attack:%f \n Type:%s \n Accuracy:%f \n", 
+                fighterToBeChecked.getName(), 
+                fighterToBeChecked.getHP(), fighterToBeChecked.getAtk(), 
+                fighterToBeChecked.getType(), fighterToBeChecked.getAcc());
     }
     
     public static void TournamentHistory(){
@@ -118,12 +136,39 @@ public class Tournament {
         
     }
     
+    //For all "Combatant related functions - Text file or array?
     public static void ViewCombatantList(){
+        try {combatantScanner=  new Scanner(new File("C:\\Users\\Rashan\\Documents\\NetBeansProjects\\WeaknessChart"
+                + "\\src\\weaknesschart\\CombatantList.txt"));}
+        catch(Exception e){
+            System.out.print(e);
+        }
         
+        while(combatantScanner.hasNext()){
+            
+        }
+        
+        combatantScanner.close();
     }
     
     public static void AddToCombatantList(){
+        try {combatantScanner=  new Scanner(new File("C:\\Users\\Rashan\\Documents\\NetBeansProjects\\WeaknessChart"
+                + "\\src\\weaknesschart\\CombatantList.txt"));}
+        catch(Exception e){
+            System.out.print(e);
+        }
         
+        combatantScanner.close();
+    }
+    
+    public static void DeleteFromCombatantList(){
+        try {combatantScanner=  new Scanner(new File("C:\\Users\\Rashan\\Documents\\NetBeansProjects\\WeaknessChart"
+                + "\\src\\weaknesschart\\CombatantList.txt"));}
+        catch(Exception e){
+            System.out.print(e);
+        }
+        
+        combatantScanner.close();
     }
     
     
