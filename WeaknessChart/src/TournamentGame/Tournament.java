@@ -10,6 +10,7 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Scanner;
 import java.util.Random;
+import TournamentGameUI.GameFrameUI;
 
 /**
  *

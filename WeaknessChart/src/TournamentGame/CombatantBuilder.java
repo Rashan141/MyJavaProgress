@@ -45,8 +45,8 @@ abstract class CombatantBuilder {
         this.AtkPoints = Attack;
         return this;
     }
-    public CombatantBuilder setType(){
-        this.personalType = " ";
+    public CombatantBuilder setType(String Type){
+        this.personalType = (Type != "" ? Type : " ");
         return this;
     }
 }

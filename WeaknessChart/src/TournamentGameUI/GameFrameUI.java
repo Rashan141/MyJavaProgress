@@ -13,6 +13,15 @@ import javax.swing.JFrame;
  */
 public class GameFrameUI extends JFrame{
     
+    GamePanel gamePanel;
+    
+    public GameFrameUI(){
+        
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        this.setSize(500, 400);
+        add(gamePanel);
+        this.setVisible(true);
+    }
     
     
 }
